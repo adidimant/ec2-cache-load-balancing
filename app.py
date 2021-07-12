@@ -55,7 +55,7 @@ def main(instance_id):
   def get():
     global is_instance_synced, nodes, users_session, instance_id
     if not is_instance_synced:
-      return "Not all instances are yet syncronized, please wait less than 1 minute", 500
+      return "Not all instances are yet syncronized, please wait up to 1 minute", 500
     user_id = request.args.get("user_id")
     is_piped = request.args.get("is_piped")  # Will be None in case of regular ELB requests
     node, alt_node = get_node_couple(user_id)
@@ -112,7 +112,7 @@ def main(instance_id):
   def put():
     global is_instance_synced, nodes, users_session, instance_id
     if not is_instance_synced:
-      return "Not all instances are yet syncronized, please wait less than 1 minute", 500
+      return "Not all instances are yet syncronized, please wait up to 1 minute", 500
     user_id = request.args.get("user_id")
     is_piped = request.args.get("is_piped")
     data = request.get_data()
